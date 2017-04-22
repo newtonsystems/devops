@@ -22,6 +22,9 @@ RUN apt-get -yq update && apt-get -yq install \
     build-essential autoconf libtool \
     git \
     curl \
+    python-dev \
+    python \
+    python-pip \
     pkg-config && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -41,3 +44,6 @@ RUN git clone -b $(curl -L http://grpc.io/release) https://github.com/grpc/grpc 
 # Basic check
 RUN protoc --version
 
+RUN pip install grpcio-tools
+
+CMD ["/bin/bash"]

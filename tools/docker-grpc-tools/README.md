@@ -1,10 +1,10 @@
 # docker-grpc-tools
 
-Available from docker hub as [newtonsystems/tools/docker-grpc-tools](https://hub.docker.com/r/newtonsystems/tools/docker-grpc-tools)
+Available from docker hub as [newtonsystems/tools/docker-grpc-tools](https://hub.docker.com/r/newtonsystems/tools-docker-grpc-tools/)
 
 #### Supported tags and respective `Dockerfile` links
 
--    [`v0.0b1`, `latest` (/Dockerfile*)](https://github.com/newtonsystems/devops/tools/docker-grpc-tools/blob/master/Dockerfile)
+-    [`v0.1.0`, `latest` (/Dockerfile*)](https://github.com/newtonsystems/devops/blob/master/tools/docker-grpc-tools/Dockerfile)
 
 # What is docker-grpc-tools?
 
@@ -22,6 +22,20 @@ jobs:
     docker:
       - image: newtonsystems/tools/docker-grpc-tools:0.0.1
 ```
+
+
+## How to do a release
+- Make sure you are using docker-utils 
+i.e.
+
+```bash
+export PATH="~/<LOCATION>/docker-utils/bin:$PATH"
+```
+
+```
+build-tag-push.py 
+```
+
 
 ## Future
 
