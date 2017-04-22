@@ -37,7 +37,7 @@ export PATH="~/<LOCATION>/docker-utils/bin:$PATH"
 ```
 
 ```
-build-tag-push.py 
+build-tag-push-dockerfile.py  --image "newtonsystems/tools-docker-grpc-tools" --version 0.1.0 --dockerhub_release --github_release
 ```
 
 
