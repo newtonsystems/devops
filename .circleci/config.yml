@@ -22,7 +22,7 @@ jobs:
 
       # Build and Push to Docker Hub (latest and circleci version'd) 
       - run: |
-            TAG=$DOCKER-GRPC-TOOLS_VERSION.$CIRCLE_BUILD_NUM
+            TAG=$(DOCKER-GRPC-TOOLS_VERSION).$CIRCLE_BUILD_NUM
             docker build -t newtonsystems/tools-docker-grpc-tools ./tools/docker-grpc-tools
             docker build -t newtonsystems/tools-docker-grpc-tools:$TAG ./tools/docker-grpc-tools
             docker login -u $DOCKER_USER -p $DOCKER_PASS
