@@ -10,17 +10,17 @@
 
 version: 2
 jobs:
-  tools-docker-grpc-tools:
+  build:
     docker:
       - image: docker:1.13.1-git
-    working_directory: ~/docker-grpc-tools
+    working_directory: ~/devops
     steps:
       - checkout
       - setup_remote_docker
 
       # build and test application
       - run: |
-          docker build -t newtonsystems/tools-docker-grpc-tools .
+          docker build -t newtonsystems/tools-docker-grpc-tools ./tools/docker-grpc-tools
 
       - deploy:
           name: Deploy Latest to Docker Hub
