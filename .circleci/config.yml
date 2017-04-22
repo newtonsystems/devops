@@ -4,9 +4,13 @@
 # For info, see: https://circleci.com/docs/2.0/
 #
 
+# This file contains all the builds for devops 
+# when something changes everything is rebuild and pushed.
+# Not ideal but hell ...
+
 version: 2
 jobs:
-  build:
+  tools-docker-grpc-tools:
     docker:
       - image: docker:1.13.1-git
     working_directory: ~/docker-grpc-tools
