@@ -24,7 +24,7 @@ jobs:
       - run: |
             TAG=$DOCKER-GRPC-TOOLS_VERSION.$CIRCLE_BUILD_NUM
             docker build -t newtonsystems/tools-docker-grpc-tools ./tools/docker-grpc-tools .
-            docker build build -t newtonsystems/tools-docker-grpc-tools:$TAG ./tools/docker-grpc-tools .
+            docker build -t newtonsystems/tools-docker-grpc-tools:$TAG ./tools/docker-grpc-tools .
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push newtonsystems/tools-docker-grpc-tools:latest
             docker push newtonsystems/tools-docker-grpc-tools:$TAG
