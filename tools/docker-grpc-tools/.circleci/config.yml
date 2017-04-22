@@ -1,0 +1,25 @@
+#
+# Circle CI 2.0 Docs
+# 
+# For info, see: https://circleci.com/docs/2.0/
+#
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:1.13.1-git
+    working_directory: ~/docker-grpc-tools
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      # build and test application
+      - run: |
+          docker build -t newtonsystems/tools-docker-grpc-tools .
+
+      - deploy:
+          name: Deploy Latest to Docker Hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push newtonsystems/tools-docker-grpc-tools:latest
