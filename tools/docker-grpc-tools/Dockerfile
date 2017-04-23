@@ -44,6 +44,6 @@ RUN git clone -b $(curl -L http://grpc.io/release) https://github.com/grpc/grpc 
 # Basic check
 RUN protoc --version
 
-RUN pip install grpcio-tools
+RUN pip install grpcio-tools devpi-client
 
 CMD ["/bin/bash"]
