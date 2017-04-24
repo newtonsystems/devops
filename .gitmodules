@@ -1,0 +1,3 @@
+[submodule "images/docker-nginx-reverse-proxy"]
+	path = images/docker-nginx-reverse-proxy
+	url = git@github.com:newtonsystems/docker-nginx-reverse-proxy.git
