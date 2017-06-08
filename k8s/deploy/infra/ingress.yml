@@ -1,8 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: mattermost
+  name: mattermost2
 spec:
   backend:
-    serviceName: mattermost
-    servicePort: 8065
+    serviceName: mattermost-aws-host
+    servicePort: 80
+
+-- need to add 443
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: devpi
+spec:
+  backend:
+    serviceName: devpi
+    servicePort: 3141

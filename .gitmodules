@@ -1,3 +1,6 @@
 [submodule "images/docker-nginx-reverse-proxy"]
 	path = images/docker-nginx-reverse-proxy
 	url = git@github.com:newtonsystems/docker-nginx-reverse-proxy.git
+[submodule "images/docker-python-grpc-service-base"]
+	path = images/docker-python-grpc-service-base
+	url = https://github.com/newtonsystems/docker-python-grpc-service-base.git

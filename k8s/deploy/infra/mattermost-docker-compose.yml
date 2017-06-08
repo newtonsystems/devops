@@ -1,0 +1,80 @@
+version: "2"
+
+services:
+
+  db:
+    build: db
+    restart: unless-stopped
+    volumes:
+      - /vol/mattermost/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER=mmuser
+      - POSTGRES_PASSWORD=mmuser_password
+      - POSTGRES_DB=mattermost
+    # uncomment the following to enable backup
+    #  - AWS_ACCESS_KEY_ID=XXXX
+    #  - AWS_SECRET_ACCESS_KEY=XXXX
+    #  - WALE_S3_PREFIX=s3://BUCKET_NAME/PATH
+    #  - AWS_REGION=us-east-1
+    #  in case your config is not in default location
+    #  - MM_CONFIG=/mattermost/config/config.jso
+
+  app:
+    build:
+      context: app
+      # comment out for team edition
+      dockerfile: Dockerfile-enterprise
+    restart: unless-stopped
+    volumes:
+      - /vol/mattermost/app/mattermost/config:/mattermost/config:rw
+      - /vol/mattermost/app/mattermost/data:/mattermost/data:rw
+      - /vol/mattermost/app/mattermost/logs:/mattermost/logs:rw
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      # set same as db credentials and dbname
+      - MM_USERNAME=mmuser
+      - MM_PASSWORD=mmuser_password
+      - MM_DBNAME=mattermost
+    depends_on:
+      - db
+
+  web:
+    build: web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    volumes:
+      # This directory must have cert files
+      - /vol/mattermost/web/cert:/cert:ro
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      - app
+
+  nginx-rev-proxy:
+    image: newtonsystems/docker-nginx-reverse-proxy:latest
+    ports:
+      - "443:443"
+      - "80:80"
+    restart: unless-stopped
+    # TRY THIS BECAUSE TIMING NOT GOOD
+    # healthcheck:
+    #     test: ["CMD", "curl", "-f", "http://localhost"]
+    #     interval: 30s
+    #     timeout: 10s
+    #     retries: 5
+    environment:
+      # set same as db credentials and dbname
+      - ENFORCE_HTTPS=TRUE
+      - DOMAIN_NAME=mattermost.dev.tetherboxapp.com
+      - WEB_SERVER_PORT=8080
+    volumes:
+      - /vol/mattermost/nginx-rev-proxy/letsencrypt:/etc/letsencrypt
+      - /vol/mattermost/nginx-rev-proxy/pki:/etc/pki/nginx
+    links:
+      - web:webserver
+    depends_on:
+      - web
+
+
+
