@@ -19,9 +19,9 @@ fi
 # Note: When we increment we want it to be the latest package 
 #       when we try and use it. 
 # i.e. 0.1.dev89 would not be suitable as `devpi install <package_name>` would not install it
-VERSION=$(python -c "import os; from grpc_types import __version__; major, minor, patch = __version__.split('.'); print '%s.%s.%s' % (major, minor, os.getenv('CIRCLE_BUILD_NUM'))")
+VERSION=$(python -c "import os; from $CIRCLE_PROJECT_REPONAME import __version__; major, minor, patch = __version__.split('.'); print '%s.%s.%s' % (major, minor, os.getenv('CIRCLE_BUILD_NUM'))")
 
-echo -e "__version__ = '$VERSION'" > grpc_types/__init__.py
+echo -e "__version__ = '$VERSION'" > $CIRCLE_PROJECT_REPONAME/__init__.py
 
 # build package and upload to private pypi index
 devpi use $DEVPI_HOST
