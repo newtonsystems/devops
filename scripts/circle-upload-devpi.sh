@@ -24,7 +24,7 @@ VERSION=$(python -c "import os; from grpc_types import __version__; major, minor
 echo -e "__version__ = '$VERSION'" > grpc_types/__init__.py
 
 # build package and upload to private pypi index
-devpi use http://$DEVPI_HOST
+devpi use $DEVPI_HOST
 devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
 devpi use $CIRCLE_PROJECT_USERNAME/$CIRCLE_BRANCH
 
