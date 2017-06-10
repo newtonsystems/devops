@@ -2,6 +2,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: mattermost2
+  annotations:
+    https.port: "443"
 spec:
   backend:
     serviceName: mattermost-aws-host
