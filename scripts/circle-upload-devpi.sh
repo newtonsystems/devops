@@ -33,5 +33,5 @@ if [ -d "./docs" ]; then
     echo "Found docs/ folder will upload with documentation ... "
     devpi upload --with-docs --formats bdist_wheel
 else
-    devpi upload --formats bsdist_wheel
+    devpi upload --formats bdist_wheel
 fi
