@@ -28,4 +28,5 @@ devpi use $DEVPI_HOST
 devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
 devpi use $CIRCLE_PROJECT_USERNAME/$CIRCLE_BRANCH
 
-devpi upload --with-docs
+devpi upload --with-docs --formats bdist_wheel
+
