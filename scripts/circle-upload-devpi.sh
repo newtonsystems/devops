@@ -28,5 +28,10 @@ devpi use $DEVPI_HOST
 devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
 devpi use $CIRCLE_PROJECT_USERNAME/$CIRCLE_BRANCH
 
-devpi upload --with-docs --formats bdist_wheel
-
+# Upload package to devpi
+if [ -d "./docs" ]; then
+    echo "Found docs/ folder will upload with documentation ... "
+    devpi upload --with-docs --formats bdist_wheel
+else
+    devpi upload --formats bsdist_wheel
+fi
