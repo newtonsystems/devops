@@ -18,9 +18,7 @@ spec:
       - image: hello:local
         args: ["app"]
         name: hello
-        env:
-        - name: ENV_TYPE
-          value: dev
+        #env:
         # - name: POD_NAME
         #   valueFrom:
         #     fieldRef:
