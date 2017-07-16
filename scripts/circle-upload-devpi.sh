@@ -26,7 +26,7 @@ echo -e "__version__ = '$VERSION'" > $CIRCLE_PROJECT_REPONAME/__init__.py
 # build package and upload to private pypi index
 devpi use $DEVPI_HOST
 devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
-devpi use $CIRCLE_PROJECT_USERNAME/$CIRCLE_BRANCH
+devpi use $DEVPI_USERNAME/$CIRCLE_BRANCH
 
 # Upload package to devpi
 if [ -d "./docs" ]; then
