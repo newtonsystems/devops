@@ -31,7 +31,9 @@ devpi use $DEVPI_USERNAME/$CIRCLE_BRANCH
 # Upload package to devpi
 if [ -d "./docs" ]; then
     echo "Found docs/ folder will upload with documentation ... "
+    devpi upload
     devpi upload --with-docs --formats bdist_wheel
 else
+    devpi upload
     devpi upload --formats bdist_wheel
 fi
