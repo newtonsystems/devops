@@ -100,7 +100,7 @@ spec:
           name: "linkerd-config"
       containers:
       - name: linkerd
-        image: buoyantio/linkerd:1.0.0
+        image: buoyantio/linkerd:1.1.0
         env:
         - name: POD_IP
           valueFrom:
@@ -141,6 +141,8 @@ spec:
     port: 4140
   - name: incoming
     port: 4141
+    targetPort: 4141
+    nodePort: 30000
   - name: incoming-dev-workflow-2
     port: 4145
   - name: admin

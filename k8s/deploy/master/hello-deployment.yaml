@@ -15,8 +15,7 @@ spec:
         run: hello
     spec:
       containers:
-      - image: newtonsystems/hello:featuretest
-        imagePullPolicy: Always
+      - image: newtonsystems/hello:master
         args: ["app"]
         name: hello
         ports:
