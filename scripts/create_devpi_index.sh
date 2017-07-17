@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# export DEVPI_HOST=https://devpi.newtonsystems.co.uk
-# export DEVPI_USERNAME=newtonsystems
-# export DEVPI_PASSWORD=gloucester12
+export DEVPI_HOST=https://devpi.jtarball.co.uk
+export DEVPI_USERNAME=jtarball
+export DEVPI_PASSWORD=gloucester12
 
 if [ -z "$DEVPI_HOST" ]; then
     echo "You have not set the environment variable DEVPI_HOST"

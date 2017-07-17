@@ -1,21 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: mattermost2
-  annotations:
-    https.port: "443"
+  name: path-based-ingress
 spec:
-  backend:
-    serviceName: mattermost-aws-host
-    servicePort: 80
-
--- need to add 443
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: devpi
-spec:
-  backend:
-    serviceName: devpi
-    servicePort: 3141
+  rules:
+  - host: foo.rancher.newtonsystems.co.uk
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: zipkin
+          servicePort: 80
