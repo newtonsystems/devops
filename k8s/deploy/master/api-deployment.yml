@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: go-api-gateway
+  name: go-api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: go-api-gateway
+  template:
+    metadata:
+      labels:
+        run: go-api-gateway
+    spec:
+      containers:
+      - image: newtonsystems/go-api-gateway:master
+        imagePullPolicy: Always
+        name: go-api-gateway
+        ports:
+        - containerPort: 8080
+        - containerPort: 9001
+        - containerPort: 9002
+
