@@ -1,8 +1,0 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: go-api-gateway
-spec:
-  backend:
-    serviceName: go-api-gateway
-    servicePort: 9001
