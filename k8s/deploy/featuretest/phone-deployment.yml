@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: newtonsystems/phone-channel:featuretest
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         name: phone-channel
         ports:
         - containerPort: 50000
