@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: phone-channel
+  name: phone-channel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: phone-channel
+  template:
+    metadata:
+      labels:
+        run: phone-channel
+    spec:
+      containers:
+      - image: newtonsystems/phone-channel:master
+        name: phone-channel
+        ports:
+        - containerPort: 50000
+
