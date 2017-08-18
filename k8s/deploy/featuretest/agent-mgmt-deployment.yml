@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: agent-mgmt
+  name: agent-mgmt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: agent-mgmt
+  template:
+    metadata:
+      labels:
+        run: agent-mgmt
+    spec:
+      containers:
+      - image: newtonsystems/agent-mgmt:featuretest
+        name: agent-mgmt
+        ports:
+        - containerPort: 50000
+
