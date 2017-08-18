@@ -11,4 +11,4 @@ sudo docker run --restart=unless-stopped --link rancher-server:webserver \
 --env ENFORCE_HTTPS=TRUE \
 --env DOMAIN_NAME=rancher.jtarball.co.uk \
 --env MATTERMOST_WEBHOOK_URL=https://mattermost.jtarball.co.uk/hooks/9eypzzfrrjy9dyptf6s6otchie \
--d newtonsystems/docker-nginx-reverse-proxy:0.1.0
+-d newtonsystems/docker-nginx-reverse-proxy:0.1.1
