@@ -19,4 +19,12 @@ spec:
         name: agent-mgmt
         ports:
         - containerPort: 50000
-
+        - containerPort: 27017
+        volumeMounts:
+        - name: agent-mgmt-storage
+          mountPath:  /go/src/github.com/newtonsystems/agent-mgmt
+      volumes:
+      - name: agent-mgmt-storage
+        hostPath:
+          # directory location on host
+          path: /Users/danvir/go/src/github.com/newtonsystems/agent-mgmt
