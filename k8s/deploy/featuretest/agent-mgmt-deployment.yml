@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - image: newtonsystems/agent-mgmt:featuretest
+        imagePullPolicy: Always
         name: agent-mgmt
         ports:
         - containerPort: 50000

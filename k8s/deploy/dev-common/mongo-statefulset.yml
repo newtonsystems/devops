@@ -21,7 +21,7 @@ spec:
             - "--logpath"
             - "/data/db/mongod.log"
             - "--wiredTigerCacheSizeGB"
-            - '1'
+            - '0.5'
           ports:
             - containerPort: 27017
           volumeMounts:
