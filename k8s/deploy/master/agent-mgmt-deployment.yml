@@ -18,6 +18,9 @@ spec:
       - image: newtonsystems/agent-mgmt:master
         imagePullPolicy: Always
         name: agent-mgmt
+        env:
+        - name: MONGO_DB
+          value: "master"
         ports:
         - containerPort: 50000
 
