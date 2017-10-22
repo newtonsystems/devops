@@ -7,10 +7,18 @@ metadata:
     role: mongo
 spec:
   ports:
-  - name: mongo
+  - name: mongo-0
     port: 27017
     targetPort: 27017
     nodePort: 31117
+  - name: mongo-1
+    port: 27017
+    targetPort: 27017
+    nodePort: 31118
+  - name: mongo-2
+    port: 27017
+    targetPort: 27017
+    nodePort: 31119
   selector:
     role: mongo
   type: NodePort
