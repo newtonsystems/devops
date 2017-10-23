@@ -17,8 +17,12 @@ spec:
       containers:
       - image: newtonsystems/agent-mgmt:master
         name: agent-mgmt
+        env:
+        - name: MONGO_DB
+          value: "master"
         ports:
         - containerPort: 50000
+        - containerPort: 8080
         - containerPort: 27017
         volumeMounts:
         - name: agent-mgmt-storage
