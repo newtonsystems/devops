@@ -6,6 +6,8 @@ metadata:
   name: agent-mgmt
 spec:
   ports:
+  - name: debug
+    port: 8080
   - name: outgoing
     port: 27017
   - name: grpc

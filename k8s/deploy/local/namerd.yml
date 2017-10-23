@@ -116,7 +116,10 @@ data:
         /srv        => /#/io.l5d.k8s/default/grpc;
         /grpc       => /srv;
         /grpc/grpc_types.Hello => /srv/hello;
+        /svc/grpc_types.AgentMgmt/GetAvailableAgents => /srv/agent-mgmt;
+        /svc/grpc_types.AgentMgmt/GetAgentIDFromRef => /srv/agent-mgmt;
         /svc        => /$/io.buoyant.http.domainToPathPfx/grpc;
+        /svc/mongo => /srv/mongo;
       " | namerctl dtab create internal -
     fi
     if namerctl dtab get internal-dev-workflow-2 > /dev/null 2>&1; then
