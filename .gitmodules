@@ -4,6 +4,3 @@
 [submodule "images/docker-python-grpc-service-base"]
 	path = images/docker-python-grpc-service-base
 	url = https://github.com/newtonsystems/docker-python-grpc-service-base.git
-[submodule "tools/tools-docker-grpc-tools"]
-	path = tools/tools-docker-grpc-tools
-	url = https://github.com/newtonsystems/tools-docker-grpc-tools.git
